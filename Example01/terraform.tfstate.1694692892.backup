@@ -1,0 +1,103 @@
+{
+  "version": 4,
+  "terraform_version": "1.5.7",
+  "serial": 23,
+  "lineage": "7a5238d1-c8a9-da40-5c9c-bfc2c08c4668",
+  "outputs": {},
+  "resources": [
+    {
+      "mode": "managed",
+      "type": "azurerm_resource_group",
+      "name": "TFuser-RG1",
+      "provider": "provider[\"registry.terraform.io/hashicorp/azurerm\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "id": "/subscriptions/d945d7dd-ab0f-4f97-b41e-01d16e5f80fd/resourceGroups/TFuser-RG00",
+            "location": "eastus",
+            "name": "TFuser-RG00",
+            "tags": {},
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo1NDAwMDAwMDAwMDAwLCJkZWxldGUiOjU0MDAwMDAwMDAwMDAsInJlYWQiOjMwMDAwMDAwMDAwMCwidXBkYXRlIjo1NDAwMDAwMDAwMDAwfX0="
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "azurerm_subnet",
+      "name": "vnet01-subnet02",
+      "provider": "provider[\"registry.terraform.io/hashicorp/azurerm\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "address_prefixes": [
+              "10.0.1.0/26"
+            ],
+            "delegation": [],
+            "enforce_private_link_endpoint_network_policies": false,
+            "enforce_private_link_service_network_policies": false,
+            "id": "/subscriptions/d945d7dd-ab0f-4f97-b41e-01d16e5f80fd/resourceGroups/TFuser-RG00/providers/Microsoft.Network/virtualNetworks/TFuser-VNET01/subnets/TFuser-VNET01-SNET02",
+            "name": "TFuser-VNET01-SNET02",
+            "resource_group_name": "TFuser-RG00",
+            "service_endpoint_policy_ids": null,
+            "service_endpoints": null,
+            "timeouts": null,
+            "virtual_network_name": "TFuser-VNET01"
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxODAwMDAwMDAwMDAwLCJkZWxldGUiOjE4MDAwMDAwMDAwMDAsInJlYWQiOjMwMDAwMDAwMDAwMCwidXBkYXRlIjoxODAwMDAwMDAwMDAwfX0=",
+          "dependencies": [
+            "azurerm_resource_group.TFuser-RG1",
+            "azurerm_virtual_network.vnet1"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "azurerm_virtual_network",
+      "name": "vnet1",
+      "provider": "provider[\"registry.terraform.io/hashicorp/azurerm\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "address_space": [
+              "10.0.0.0/16"
+            ],
+            "bgp_community": "",
+            "ddos_protection_plan": [],
+            "dns_servers": [],
+            "edge_zone": "",
+            "flow_timeout_in_minutes": 0,
+            "guid": "675c3dd1-9ea2-4b6c-9135-73f451d5252d",
+            "id": "/subscriptions/d945d7dd-ab0f-4f97-b41e-01d16e5f80fd/resourceGroups/TFuser-RG00/providers/Microsoft.Network/virtualNetworks/TFuser-VNET01",
+            "location": "eastus",
+            "name": "TFuser-VNET01",
+            "resource_group_name": "TFuser-RG00",
+            "subnet": [
+              {
+                "address_prefix": "10.0.0.0/26",
+                "id": "/subscriptions/d945d7dd-ab0f-4f97-b41e-01d16e5f80fd/resourceGroups/TFuser-RG00/providers/Microsoft.Network/virtualNetworks/TFuser-VNET01/subnets/TFuser-VNET01-SNET01",
+                "name": "TFuser-VNET01-SNET01",
+                "security_group": ""
+              }
+            ],
+            "tags": {},
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxODAwMDAwMDAwMDAwLCJkZWxldGUiOjE4MDAwMDAwMDAwMDAsInJlYWQiOjMwMDAwMDAwMDAwMCwidXBkYXRlIjoxODAwMDAwMDAwMDAwfX0=",
+          "dependencies": [
+            "azurerm_resource_group.TFuser-RG1"
+          ]
+        }
+      ]
+    }
+  ],
+  "check_results": null
+}

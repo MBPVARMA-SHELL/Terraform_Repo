@@ -1,0 +1,43 @@
+> $env:TF_LOG="TRACE"
+> $env:TF_LOG_PATH="terraform.txt"
+
+setx PATH "%PATH%;C:\Something\bin"
+
+setx PATH "%PATH%;C:\Users\Bhanu.Mundla\OneDrive - Shell\Bhanu_952990_Files\SoftwareInstallations\terraform_1.5.7_windows_amd64\terraform"
+
+setx PATH "%PATH%;C:\BhanuSoftwareFiles\terraform_1.5.7_windows_amd64\terraform"
+
+Invoke-WebRequest -Uri https://aka.ms/installazurecliwindows -OutFile .\AzureCLI.msi; Start-Process msiexec.exe -Wait -ArgumentList '/I AzureCLI.msi /quiet'; rm .\AzureCLI.msi
+
+## Download the MSI
+ Invoke-WebRequest -Uri https://aka.ms/installazurecliwindows -OutFile .\AzureCLI.msi
+ 
+## Invoke the MSI installer suppressing all output
+ Start-Process msiexec.exe -Wait -ArgumentList '/I AzureCLI.msi /quiet'
+
+##Remove the MSI installer
+ Remove-Item -Path .\AzureCLI.msi
+
+
+az config set core.allow_broker=true
+az account clear
+az login
+
+az group show --name TFuser-RG00 --query id --output tsv
+
+/subscriptions/d945d7dd-ab0f-4f97-b41e-01d16e5f80fd/resourceGroups/TFuser-RG00
+
+
+terraform import azurerm_resource_group.example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1
+
+
+terraform import azurerm_resource_group.TFuser-RG1 /subscriptions/d945d7dd-ab0f-4f97-b41e-01d16e5f80fd/resourceGroups/TFuser-RG00
+
+TF-User-Test01
+
+/subscriptions/d945d7dd-ab0f-4f97-b41e-01d16e5f80fd/resourceGroups/TFuser-RG00/providers/Microsoft.Network/virtualNetworks/TFuser-VNET01
+/subscriptions/d945d7dd-ab0f-4f97-b41e-01d16e5f80fd/resourceGroups/TFuser-RG00/providers/Microsoft.Network/networkSecurityGroups/TFuser-VNET01-NSG01
+
+terraform import azurerm_virtual_network.vnet1 /subscriptions/d945d7dd-ab0f-4f97-b41e-01d16e5f80fd/resourceGroups/TFuser-RG00/providers/Microsoft.Network/virtualNetworks/TFuser-VNET01
+
+terraform import azurerm_network_security_group.vnet01-nsg01 /subscriptions/d945d7dd-ab0f-4f97-b41e-01d16e5f80fd/resourceGroups/TFuser-RG00/providers/Microsoft.Network/networkSecurityGroups/TFuser-VNET01-NSG01
